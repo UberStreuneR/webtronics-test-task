@@ -1,3 +1,4 @@
+import urllib
 from fastapi import FastAPI
 from fastapi.openapi.docs import (
     get_swagger_ui_html
@@ -13,6 +14,10 @@ settings = get_settings()
 def create_app() -> FastAPI:
 
     app = FastAPI(docs_url=None)
+
+    @app.get("/encode-link")
+    async def encode_link(link: str):
+        return urllib.parse.quote_plus(link)
 
     @app.get("/docs", include_in_schema=False)
     async def custom_swagger_ui_html():
