@@ -13,3 +13,8 @@
 - $ make build
 - $ make setup-db
 - $ make run
+
+### Notes
+
+- Sometimes a database setup doesn't work right away. Try the second option (make setup-db) one more time.
+- docs: localhost:8000/docs
