@@ -7,8 +7,11 @@ run:
 	$(dc) up -d api
 
 setup-db:
-	$(dc) run --rm api alembic upgrade head
+	$(dc) run --rm api sh -c "./run.sh; alembic upgrade head"
 
 alembic:
-	$(dc) run --rm api alembic revision --autogenerate -m $(msg)
-	$(dc) run --rm api alembic upgrade head
+	$(dc) run --rm api sh -c "alembic revision --autogenerate -m $(msg); alembic upgrade head"
+
+# alembic:
+# 	$(dc) run --rm api alembic revision --autogenerate -m $(msg)
+# 	$(dc) run --rm api alembic upgrade head

@@ -1,6 +1,5 @@
 from fastapi import Depends, HTTPException, status
 from api.utils import oauth2_scheme, ALGORITHM
-# from api.services.users import UserService
 from jose import JWTError, jwt
 from api.config import get_settings
 from api.services import get_user_service, UserService

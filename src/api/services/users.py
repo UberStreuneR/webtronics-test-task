@@ -37,8 +37,8 @@ class UserService:
         except sqlalchemy.exc.IntegrityError as e:
             self.session.rollback()
             if "duplicate key" in str(e):
-                raise HTTPException(status_code=409, detail="Conflict Error")
+                raise HTTPException(
+                    status_code=409, detail="Username already exists")
             else:
                 raise e
-        print(user_obj.username, user_obj.user_id, user_obj.hashed_password)
         return user_obj

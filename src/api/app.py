@@ -4,7 +4,7 @@ from fastapi.openapi.docs import (
 )
 from api.routers.auth import auth_router
 from api.routers.users import users_router
-
+from api.routers.posts import posts_router
 
 from api.config import get_settings
 settings = get_settings()
@@ -26,4 +26,5 @@ def create_app() -> FastAPI:
 
     app.include_router(auth_router)
     app.include_router(users_router)
+    app.include_router(posts_router)
     return app

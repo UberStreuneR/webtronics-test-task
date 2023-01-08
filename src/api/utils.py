@@ -1,7 +1,7 @@
 from passlib.context import CryptContext
 from api.config import get_settings
 from datetime import timedelta, datetime
-from jose import JWTError, jwt
+from jose import jwt
 from fastapi.security import OAuth2PasswordBearer
 from typing import Union
 
